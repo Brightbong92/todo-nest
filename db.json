@@ -1,0 +1,22 @@
+{
+    "user": [
+        {
+            "id": "test2@test.com",
+            "email": "test2@test.com",
+            "name": "홍길동",
+            "password": "password"
+        },
+        {
+            "id": "test@test.com",
+            "email": "test@test.com",
+            "name": "홍길동",
+            "password": "password"
+        },
+        {
+            "id": "test3@test.com",
+            "email": "test3@test.com",
+            "name": "홍길동",
+            "password": "password"
+        }
+    ]
+}
