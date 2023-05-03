@@ -1,5 +1,37 @@
 {
     "user": [],
-    "auth": [],
-    "todo": []
+    "todo": [
+        {
+            "id": "d9e0ccb2-f444-4ea8-96fe-803625f71d9f",
+            "title": "프론트 공부하기",
+            "description": "리액트, 뷰 공부",
+            "createdAt": "2023-05-03T07:52:59.203Z"
+        },
+        {
+            "id": "c73696d9-8e37-4988-a973-2bfca4b3fd16",
+            "title": "백엔드 공부하기",
+            "description": "nest.js, 스프링 공부",
+            "createdAt": "2023-05-03T07:53:12.396Z"
+        },
+        {
+            "id": "b6d2f2be-e9f2-4b55-a838-e577a11a03d1",
+            "title": "뚝섬한강가기",
+            "description": "라면 끓여먹기 컵라면",
+            "createdAt": "2023-05-03T08:09:30.745Z",
+            "updatedAt": "2023-05-03T08:12:16.885Z"
+        },
+        {
+            "id": "8eb4635e-bf95-43ef-82d4-49b579eeab39",
+            "title": "알고리즘 공부하기",
+            "description": "DFS DPS ",
+            "createdAt": "2023-05-03T08:11:14.062Z"
+        },
+        {
+            "id": "21195f32-ed06-4e42-810a-404aed6450ed",
+            "title": "다시 코딩하기",
+            "description": "코드를 한줄한줄 확인해보자",
+            "createdAt": "2023-05-03T08:11:30.563Z",
+            "updatedAt": "2023-05-03T08:14:00.292Z"
+        }
+    ]
 }

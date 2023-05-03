@@ -5,11 +5,11 @@ import {
 } from '@nestjs/common';
 import { Config, JsonDB } from 'node-json-db';
 import { v4 as uuidv4 } from 'uuid';
+import { DATABASE } from './constants/constants';
 
 @Injectable()
 export class DbService {
   private db: JsonDB;
-  private readonly DB_NAME = 'db';
 
   constructor() {
     (async () => {
@@ -18,18 +18,16 @@ export class DbService {
   }
 
   private async initDatabase() {
-    this.db = new JsonDB(new Config(this.DB_NAME, true, true, '/'));
+    this.db = new JsonDB(new Config(DATABASE.DB_NAME, true, true, '/'));
     try {
-      await this.db.getData(`/user`);
-      await this.db.getData(`/auth`);
-      await this.db.getData(`/todo`);
+      await this.db.getData(DATABASE.USER);
+      await this.db.getData(DATABASE.TODO);
     } catch (err) {
-      await this.db.push(`/user`, []);
-      await this.db.push(`/auth`, []);
-      await this.db.push(`/todo`, []);
+      await this.db.push(DATABASE.USER, []);
+      await this.db.push(DATABASE.TODO, []);
       console.log('err', err);
     }
-    console.log(this.db);
+    // console.log(this.db);
   }
 
   async findAll<T>(tableName: string): Promise<T[]> {
@@ -62,8 +60,16 @@ export class DbService {
     }
 
     try {
-      const updatedData = { id, ...updateData };
-      this.db.push(`${tableName}[${id}]`, updatedData, false);
+      const originData = await this.db.getData(
+        `${tableName}[${await this.db.getIndex(tableName, id)}]`,
+      );
+      const updatedData = Object.assign(originData, updateData);
+      console.log('updatedData', updatedData);
+      this.db.push(
+        `${tableName}[${await this.db.getIndex(tableName, id)}]`,
+        updatedData,
+        true,
+      );
       return true;
     } catch (err) {
       throw new InternalServerErrorException();
