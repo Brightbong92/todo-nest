@@ -10,7 +10,7 @@ export class TodoService {
   constructor(private readonly dbService: DbService) {}
 
   async create(createTodoDto: CreateTodoDto) {
-    await this.dbService.create(DATABASE.TODO, createTodoDto);
+    return await this.dbService.create(DATABASE.TODO, createTodoDto);
   }
 
   async findAll(): Promise<Todo[]> {
@@ -25,7 +25,7 @@ export class TodoService {
     return await this.dbService.update(DATABASE.TODO, id, updateTodoDto);
   }
 
-  async remove(id: string) {
+  async deleteOne(id: string) {
     return await this.dbService.deleteOne(DATABASE.TODO, id);
   }
 }

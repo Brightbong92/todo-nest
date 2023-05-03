@@ -41,10 +41,11 @@ export class DbService {
   async create<T>(tableName: string, createData: T) {
     const founds = await this.findAll(tableName);
     try {
-      const newData = { id: uuidv4(), ...createData };
+      const id = uuidv4();
+      const newData = { id, ...createData };
       founds.push(newData);
       await this.db.push(tableName, founds, true);
-      return true;
+      return id;
     } catch (err) {
       throw new InternalServerErrorException();
     }
