@@ -5,7 +5,7 @@ import {
 } from '@nestjs/common';
 import { Config, JsonDB } from 'node-json-db';
 import { v4 as uuidv4 } from 'uuid';
-import { DATABASE } from './constants/constants';
+import { DATABASE } from './constants';
 
 @Injectable()
 export class DbService {

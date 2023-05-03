@@ -22,9 +22,10 @@
         },
         {
             "id": "8eb4635e-bf95-43ef-82d4-49b579eeab39",
-            "title": "알고리즘 공부하기",
-            "description": "DFS DPS ",
-            "createdAt": "2023-05-03T08:11:14.062Z"
+            "title": "알고리즘 Study",
+            "description": "DFS BFS",
+            "createdAt": "2023-05-03T08:11:14.062Z",
+            "updatedAt": "2023-05-03T10:48:35.939Z"
         },
         {
             "id": "21195f32-ed06-4e42-810a-404aed6450ed",

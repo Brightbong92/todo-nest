@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { DbService } from 'src/db.service';
-import { DATABASE } from 'src/constants/constants';
+import { DATABASE } from 'src/constants';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
 import { Todo } from './entities/todo.entity';
@@ -22,11 +22,7 @@ export class TodoService {
   }
 
   async update(id: string, updateTodoDto: UpdateTodoDto) {
-    const updatedData = {
-      updatedAt: new Date(),
-      ...updateTodoDto,
-    };
-    return await this.dbService.update(DATABASE.TODO, id, updatedData);
+    return await this.dbService.update(DATABASE.TODO, id, updateTodoDto);
   }
 
   async remove(id: string) {

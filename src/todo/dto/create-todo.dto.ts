@@ -17,6 +17,5 @@ export class CreateTodoDto {
   })
   @IsString()
   description: string;
-
   createdAt: Date;
 }

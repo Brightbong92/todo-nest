@@ -69,6 +69,7 @@ export class TodoController {
     },
   })
   update(@Param('id') id: string, @Body() updateTodoDto: UpdateTodoDto) {
+    updateTodoDto.updatedAt = new Date();
     return this.todoService.update(id, updateTodoDto);
   }
 
