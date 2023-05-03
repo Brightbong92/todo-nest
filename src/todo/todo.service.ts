@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { DbService } from 'src/db.service';
-import { DATABASE } from 'src/constants';
+import { DbService } from '../db.service';
+import { DATABASE } from '../constants';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
 import { Todo } from './entities/todo.entity';
