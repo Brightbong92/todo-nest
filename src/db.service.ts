@@ -25,9 +25,7 @@ export class DbService {
     } catch (err) {
       await this.db.push(DATABASE.USER, []);
       await this.db.push(DATABASE.TODO, []);
-      console.log('err', err);
     }
-    // console.log(this.db);
   }
 
   async findAll<T>(tableName: string): Promise<T[]> {
@@ -64,7 +62,6 @@ export class DbService {
         `${tableName}[${await this.db.getIndex(tableName, id)}]`,
       );
       const updatedData = Object.assign(originData, updateData);
-      console.log('updatedData', updatedData);
       this.db.push(
         `${tableName}[${await this.db.getIndex(tableName, id)}]`,
         updatedData,
