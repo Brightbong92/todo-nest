@@ -35,6 +35,9 @@ export class DbService {
   async findOne<T>(tableName: string, id: string): Promise<T> {
     const founds = (await this.db.getData(tableName)) as T[];
     const found = founds.find((v: any) => v.id === id);
+    if (!found) {
+      throw new NotFoundException();
+    }
     return found;
   }
 

@@ -1,9 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { TodoService } from './todo.service';
 import { DbService } from '../db.service';
+import { NotFoundException } from '@nestjs/common';
 
 describe('TodoService', () => {
   let service: TodoService;
+  let dbService: DbService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -38,6 +40,15 @@ describe('TodoService', () => {
       expect(result.title).toEqual('New Todo');
       expect(result.description).toEqual('New Description');
       await service.deleteOne(id);
+    });
+
+    it('it should be throw error', async () => {
+      try {
+        await service.findOne('not-found');
+      } catch (e) {
+        expect(e).toBeInstanceOf(NotFoundException);
+        expect(e.message).toEqual('Not Found');
+      }
     });
   });
 });
