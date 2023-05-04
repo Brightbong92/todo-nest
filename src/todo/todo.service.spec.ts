@@ -16,29 +16,38 @@ describe('TodoService', () => {
 
   describe('findAll', () => {
     it('SUCCESS: todo 리스트를 조회한다.', async () => {
-      // const spyFindAll = jest.spyOn(service, 'findAll');
-      // const result = await service.findAll();
-      // expect(spyFindAll).toHaveBeenCalledTimes(1);
-      // expect(spyFindAll).toBeCalledWith();
-      // expect(result).toBeInstanceOf(Array);
-      // spyFindAll.mockRestore();
+      const result = await service.findAll();
+      const spyFindAll = jest
+        .spyOn(service, 'findAll')
+        .mockResolvedValueOnce(result);
+
+      expect(result).toBeInstanceOf(Array);
+      expect(await service.findAll()).toEqual(result);
+
+      expect(spyFindAll).toHaveBeenCalledTimes(1);
+      expect(spyFindAll).toBeCalledWith();
+      spyFindAll.mockRestore();
     });
   });
 
   describe('findOne', () => {
     it('SUCCESS: todo 단건 조회를 한다.', async () => {
-      // const psyDbGet = jest.spyOn(service, 'findOne').mockReturnValueOnce();
-      // const id = await service.create({
-      //   title: 'New Todo',
-      //   description: 'New Description',
-      //   createdAt: new Date(),
-      // });
-      // const result = await service.findOne(id);
-      // expect(result).toBeDefined();
-      // expect(result.id).toEqual(id);
-      // expect(result.title).toEqual('New Todo');
-      // expect(result.description).toEqual('New Description');
-      // await service.deleteOne(id);
+      const id = 'db8596ce-29ca-4c2f-b423-367dc64bafa4';
+      const findData = await service.findOne(id);
+
+      const spyFindOne = jest
+        .spyOn(service, 'findOne')
+        .mockResolvedValue(findData);
+
+      const result = await service.findOne(id);
+
+      expect(result).toBeDefined();
+      expect(result.id).toEqual(id);
+
+      expect(spyFindOne).toHaveBeenCalled();
+      expect(spyFindOne).toHaveBeenNthCalledWith(1, id);
+
+      spyFindOne.mockRestore();
     });
 
     it('SUCCESS: NotFound 에러가 발생한다.', async () => {
