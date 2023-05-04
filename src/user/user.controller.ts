@@ -1,8 +1,8 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { ApiCreatedResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { UserService } from './user.service';
 import { CreateUserDTO } from './dto/create-user.dto';
-import { User } from './entities/user.entity';
+import { LoginUserDTO } from './dto/login-user.dto';
 
 @Controller('user')
 @ApiTags('유저 API')
@@ -29,7 +29,7 @@ export class UserController {
     //   example: { success:  },
     // },
   })
-  findUsers(@Body() userData: CreateUserDTO) {
+  findUsers(@Body() userData: LoginUserDTO) {
     return this.userService.findUser(userData.email);
   }
 }
