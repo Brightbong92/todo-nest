@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { v4 as uuidv4 } from 'uuid';
 import { DBService } from '../db.service';
 import { DATABASE } from '../constants';
 import { CreateTodoDto } from './dto/create-todo.dto';
@@ -10,7 +11,8 @@ export class TodoService {
   constructor(private readonly dbService: DBService) {}
 
   async create(createTodoDto: CreateTodoDto): Promise<string> {
-    return await this.dbService.create(DATABASE.TODO, createTodoDto);
+    const id = uuidv4();
+    return await this.dbService.create(DATABASE.TODO, id, createTodoDto);
   }
 
   async findAll(): Promise<Todo[]> {

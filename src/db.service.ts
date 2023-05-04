@@ -4,7 +4,6 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { Config, JsonDB } from 'node-json-db';
-import { v4 as uuidv4 } from 'uuid';
 import { DATABASE } from './constants';
 
 @Injectable()
@@ -41,10 +40,13 @@ export class DBService {
     return found;
   }
 
-  async create<T>(tableName: string, createData: T): Promise<string> {
+  async create<T>(
+    tableName: string,
+    id: string,
+    createData: T,
+  ): Promise<string> {
     const founds = await this.findAll(tableName);
     try {
-      const id = uuidv4();
       const newData = { id, ...createData };
       founds.push(newData);
       await this.db.push(tableName, founds, true);

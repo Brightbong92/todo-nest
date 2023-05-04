@@ -1,5 +1,12 @@
 {
-    "user": [],
+    "user": [
+        {
+            "id": "test@test.com",
+            "email": "test@test.com",
+            "name": "김길동",
+            "password": "1234"
+        }
+    ],
     "todo": [
         {
             "id": "d9e0ccb2-f444-4ea8-96fe-803625f71d9f",
