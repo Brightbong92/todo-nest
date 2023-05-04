@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { DATABASE } from './constants';
 
 @Injectable()
-export class DbService {
+export class DBService {
   private db: JsonDB;
 
   constructor() {
@@ -41,7 +41,7 @@ export class DbService {
     return found;
   }
 
-  async create<T>(tableName: string, createData: T) {
+  async create<T>(tableName: string, createData: T): Promise<string> {
     const founds = await this.findAll(tableName);
     try {
       const id = uuidv4();
@@ -71,7 +71,7 @@ export class DbService {
         updatedData,
         true,
       );
-      return true;
+      return updatedData;
     } catch (err) {
       throw new InternalServerErrorException();
     }

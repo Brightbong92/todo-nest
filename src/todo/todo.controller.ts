@@ -11,6 +11,7 @@ import {
 import { TodoService } from './todo.service';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
+import { Todo } from './entities/todo.entity';
 
 @Controller('todo')
 @ApiTags('TODO API')
@@ -22,7 +23,7 @@ export class TodoController {
   @ApiCreatedResponse({
     description: 'TODO를 생성',
     schema: {
-      example: { success: true },
+      example: 'id-string',
     },
   })
   create(@Body() createTodoDto: CreateTodoDto) {
@@ -37,6 +38,7 @@ export class TodoController {
   })
   @ApiCreatedResponse({
     description: 'TODO 리스트를 조회',
+    type: Todo,
   })
   findAll() {
     return this.todoService.findAll();
@@ -65,7 +67,13 @@ export class TodoController {
   @ApiCreatedResponse({
     description: 'TODO 수정',
     schema: {
-      example: { title: '제목을 변경했어요', description: '내용도 변경했어요' },
+      example: {
+        id: 'db8596ce-29ca-4c2f-b423-367dc64bafa4',
+        title: '테니스 학원 등원',
+        description: '100번 스윙연습하기',
+        createdAt: '2023-05-03T11:37:34.181Z',
+        updatedAt: '2023-05-04T01:15:10.940Z',
+      },
     },
   })
   update(@Param('id') id: string, @Body() updateTodoDto: UpdateTodoDto) {
