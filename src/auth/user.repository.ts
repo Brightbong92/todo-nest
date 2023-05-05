@@ -1,23 +1,28 @@
-import { Injectable } from '@nestjs/common';
-import { Config, JsonDB } from 'node-json-db';
-import { DATABASE2 } from 'src/constants';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import { DATABASE_BOARD } from 'src/constants';
+import { CreateUserDTO } from './dto/create-user.dto';
+import { JsonDBService } from 'src/jsondb.service';
 
 @Injectable()
 export class UserRepository {
-  private db: JsonDB;
+  constructor(private readonly dbService: JsonDBService) {}
 
-  constructor() {
-    (async () => {
-      await this.initDatabase();
-    })();
+  async findAll() {
+    return await this.dbService.getInstance().getData(DATABASE_BOARD.USER);
   }
 
-  private async initDatabase() {
-    this.db = new JsonDB(new Config(DATABASE2.DB_NAME, true, true, '/'));
+  async create(createData: CreateUserDTO) {
+    const founds = await this.dbService
+      .getInstance()
+      .getData(DATABASE_BOARD.USER);
     try {
-      await this.db.getData(DATABASE2.USER);
+      const newData = { id: createData.email, ...createData };
+      await this.dbService
+        .getInstance()
+        .push(DATABASE_BOARD.USER, [...founds, newData]);
+      return newData;
     } catch (err) {
-      await this.db.push(DATABASE2.USER, []);
+      throw new InternalServerErrorException();
     }
   }
 }

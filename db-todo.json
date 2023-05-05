@@ -1,0 +1,49 @@
+{
+    "user": [
+        {
+            "id": "test@test.com",
+            "email": "test@test.com",
+            "name": "홍길동",
+            "password": "password"
+        },
+        {
+            "id": "test@test.com",
+            "email": "test@test.com",
+            "name": "홍길동333",
+            "password": "password"
+        },
+        {
+            "id": "test행복.com",
+            "email": "test행복.com",
+            "name": "김해피",
+            "password": "해피"
+        },
+        {
+            "id": "포도봉봉.comm",
+            "email": "포도봉봉.comm",
+            "name": "바나나",
+            "password": "애플"
+        }
+    ],
+    "todo": [
+        {
+            "id": "e5d9093e-c36e-45c3-b0a5-b075ba1da04d",
+            "title": "볼링칠까22",
+            "description": "테니스도12312312 하고",
+            "createdAt": "2023-05-05T00:44:47.874Z",
+            "updatedAt": "2023-05-05T00:45:45.716Z"
+        },
+        {
+            "id": "ede2038b-ace8-47ce-aa03-751f67803e61",
+            "title": "한강가기222",
+            "description": "맛있는거 먹기",
+            "createdAt": "2023-05-05T00:44:51.160Z"
+        },
+        {
+            "id": "6fedbf1d-3e7d-47be-bf11-d7409b6d662f",
+            "title": "코딩 공부하기",
+            "description": "매우 빡세게",
+            "createdAt": "2023-05-05T00:49:50.272Z"
+        }
+    ]
+}
