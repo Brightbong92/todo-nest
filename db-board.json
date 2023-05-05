@@ -1,100 +1,22 @@
 {
     "user": [
         {
-            "id": "test@test.com",
-            "email": "test@test.com",
-            "name": "홍길동",
-            "password": "password"
-        },
-        {
-            "id": "test@test.com",
-            "email": "test@test.com",
-            "name": "홍길동",
-            "password": "password"
-        },
-        {
-            "id": "test@test.com",
-            "email": "test@test.com",
-            "name": "홍길동",
-            "password": "password"
-        },
-        {
-            "id": "test@test.com",
-            "email": "test@test.com",
-            "name": "홍길동",
-            "password": "password"
-        },
-        {
-            "id": "test@test.com",
-            "email": "test@test.com",
-            "name": "홍길`2211동",
-            "password": "password"
-        },
-        {
-            "id": "tlsrb_dkd@test.com",
-            "email": "tlsrb_dkd@test.com",
-            "name": "뉴비",
-            "password": "패스워드유"
-        },
-        {
-            "id": "test@test.com",
-            "email": "test@test.com",
-            "name": "홍길동",
-            "password": "password"
-        },
-        {
-            "id": "test@test.com",
-            "email": "test@test.com",
-            "name": "홍길동",
-            "password": "password"
-        },
-        {
-            "id": "test@test.com",
-            "email": "test@test.com",
-            "name": "홍길동",
-            "password": "password"
-        },
-        {
-            "id": "test@test.com",
-            "email": "test@test.com",
-            "name": "홍길동",
-            "password": "password"
-        },
-        {
-            "id": "test@test.com",
-            "email": "test@test.com",
-            "name": "홍길동",
-            "password": "password"
-        },
-        {
-            "id": "test@test.com",
-            "email": "test@test.com",
-            "name": "홍길동",
-            "password": "password"
-        },
-        {
-            "id": "test@test.com",
-            "email": "test@test.com",
-            "name": "홍길동",
-            "password": "password"
-        },
-        {
-            "id": "test@test.com",
-            "email": "test@test.com",
-            "name": "홍길동",
-            "password": "password"
-        },
-        {
-            "id": "test@test.com",
-            "email": "test@test.com",
-            "name": "홍길동",
-            "password": "password"
-        },
-        {
             "id": "hello_jest@test.com",
             "email": "hello_jest@test.com",
             "name": "jestas",
             "password": "$2a$10$ke.7wOPVmcAtxA/7lrQFtOKsWoJsK/YoljmvLHeiH311Nkd6Duv3."
+        },
+        {
+            "id": "hello2_jest@test.com",
+            "email": "hello2_jest@test.com",
+            "name": "react",
+            "password": "$2a$10$jpQUnn7ZpsqDNyukgfgsuemA0befqFseObH15ETjeITP/4aK4yeOa"
+        },
+        {
+            "id": "test@test.com",
+            "email": "test@test.com",
+            "name": "홍길동",
+            "password": "$2a$10$ckVKlIVTt.yR8NuCFWvyUuxYi68QN9fzE9o4NLs5/Gl.Oh90D0PmK"
         }
     ],
     "board": [

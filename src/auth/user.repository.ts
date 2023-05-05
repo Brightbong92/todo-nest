@@ -11,11 +11,11 @@ export class UserRepository {
     return await this.dbService.getInstance().getData(DATABASE_BOARD.USER);
   }
 
-  async findExistUser(id: string) {
+  async findOne(id: string) {
     const founds = await this.findAll();
     const found = founds.find((v) => v.id === id);
-    if (found) return true;
-    else return false;
+    if (found) return found;
+    else return;
   }
 
   async createUser(createData: AuthCredentialsDTO) {
