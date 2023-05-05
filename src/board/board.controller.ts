@@ -6,15 +6,24 @@ import {
   Param,
   Patch,
   Post,
+  UseGuards,
 } from '@nestjs/common';
 import { BoardService } from './board.service';
-import { ApiCreatedResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiCreatedResponse,
+  ApiOperation,
+  ApiTags,
+} from '@nestjs/swagger';
 import { CreateBoardDto } from './dto/create-board.dto';
 import { Board } from './entities/board.entity';
 import { UpdateBoardDto } from './dto/update-board.dto';
+import { AuthGuard } from '@nestjs/passport';
 
-@Controller('board')
 @ApiTags('게시판 API')
+@ApiBearerAuth('access-token')
+@UseGuards(AuthGuard())
+@Controller('board')
 export class BoardController {
   constructor(private readonly boardService: BoardService) {}
 
@@ -30,7 +39,6 @@ export class BoardController {
     return this.boardService.create(createBoardDto);
   }
 
-  @Get()
   @ApiOperation({
     summary: '게시판 리스트 조회 API',
     description: '게시판 리스트를 조회',
@@ -39,6 +47,7 @@ export class BoardController {
     description: '게시판 리스트를 조회',
     type: Board,
   })
+  @Get()
   findAll() {
     return this.boardService.findAll();
   }
