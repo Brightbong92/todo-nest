@@ -1,6 +1,7 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { ApiCreatedResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+
 import { AuthCredentialsDTO } from './dto/auth-credentials.dto';
 
 @Controller('auth')
@@ -9,9 +10,9 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('/signup')
-  @ApiOperation({ summary: '유저 생성 API', description: '유저 생성' })
+  @ApiOperation({ summary: '회원가입 API', description: '회원가입(=유저생성)' })
   @ApiCreatedResponse({
-    description: '유저 생성',
+    description: '회원가입(=유저생성)',
     schema: {
       example: '',
     },

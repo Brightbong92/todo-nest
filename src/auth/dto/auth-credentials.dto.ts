@@ -8,7 +8,7 @@ export class AuthCredentialsDTO {
     required: true,
   })
   @IsString()
-  readonly email: string;
+  email: string;
 
   @ApiProperty({
     example: '홍길동',
@@ -17,7 +17,7 @@ export class AuthCredentialsDTO {
   })
   @IsString()
   @MinLength(1)
-  readonly name: string;
+  name: string;
 
   @ApiProperty({
     example: 'password',
@@ -31,5 +31,5 @@ export class AuthCredentialsDTO {
   @Matches(/^[a-zA-Z0-9]*$/, {
     message: 'password only accepts english and number',
   })
-  readonly password: string;
+  password: string;
 }

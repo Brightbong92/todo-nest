@@ -89,6 +89,12 @@
             "email": "test@test.com",
             "name": "홍길동",
             "password": "password"
+        },
+        {
+            "id": "hello_jest@test.com",
+            "email": "hello_jest@test.com",
+            "name": "jestas",
+            "password": "$2a$10$ke.7wOPVmcAtxA/7lrQFtOKsWoJsK/YoljmvLHeiH311Nkd6Duv3."
         }
     ],
     "board": [
