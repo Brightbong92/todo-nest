@@ -1,7 +1,7 @@
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { DATABASE_BOARD } from 'src/constants';
-import { CreateUserDTO } from './dto/create-user.dto';
 import { JsonDBService } from 'src/jsondb.service';
+import { AuthCredentialsDTO } from './dto/auth-credentials.dto';
 
 @Injectable()
 export class UserRepository {
@@ -11,11 +11,16 @@ export class UserRepository {
     return await this.dbService.getInstance().getData(DATABASE_BOARD.USER);
   }
 
-  async create(createData: CreateUserDTO) {
-    const founds = await this.dbService
-      .getInstance()
-      .getData(DATABASE_BOARD.USER);
+  async findExistUser(id: string) {
+    const founds = await this.findAll();
+    const found = founds.find((v) => v.id === id);
+    if (found) return true;
+    else return false;
+  }
+
+  async createUser(createData: AuthCredentialsDTO) {
     try {
+      const founds = await this.findAll();
       const newData = { id: createData.email, ...createData };
       await this.dbService
         .getInstance()

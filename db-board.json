@@ -35,6 +35,60 @@
             "email": "tlsrb_dkd@test.com",
             "name": "뉴비",
             "password": "패스워드유"
+        },
+        {
+            "id": "test@test.com",
+            "email": "test@test.com",
+            "name": "홍길동",
+            "password": "password"
+        },
+        {
+            "id": "test@test.com",
+            "email": "test@test.com",
+            "name": "홍길동",
+            "password": "password"
+        },
+        {
+            "id": "test@test.com",
+            "email": "test@test.com",
+            "name": "홍길동",
+            "password": "password"
+        },
+        {
+            "id": "test@test.com",
+            "email": "test@test.com",
+            "name": "홍길동",
+            "password": "password"
+        },
+        {
+            "id": "test@test.com",
+            "email": "test@test.com",
+            "name": "홍길동",
+            "password": "password"
+        },
+        {
+            "id": "test@test.com",
+            "email": "test@test.com",
+            "name": "홍길동",
+            "password": "password"
+        },
+        {
+            "id": "test@test.com",
+            "email": "test@test.com",
+            "name": "홍길동",
+            "password": "password"
+        },
+        {
+            "id": "test@test.com",
+            "email": "test@test.com",
+            "name": "홍길동",
+            "password": "password"
+        },
+        {
+            "id": "test@test.com",
+            "email": "test@test.com",
+            "name": "홍길동",
+            "password": "password"
         }
     ],
     "board": [
