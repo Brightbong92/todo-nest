@@ -49,6 +49,12 @@
             "title": "오늘한번 열심히 공부해볼까요",
             "content": "javascript call apply bind의 차이점을 알고있나요? call은 첫번째 인자로 this객체를 넘기고, 두번째인자로 파라미터를 넘겨요.\n apply는 첫번째 인자로 this객체를 넘기는건 같고, 두번째 인자로 파라미터를 배열형태로 넣어요. bind는 실행이아니라 값을 리턴해요. 리턴된값을 실행하면됩니다.",
             "createdAt": "2023-05-05T00:52:14.869Z"
+        },
+        {
+            "id": 6,
+            "title": "나의 board 프로즉테에 새로운 기능을 붙였어요.",
+            "content": "authGuard와 logger를 붙였어요.",
+            "createdAt": "2023-05-05T04:12:43.295Z"
         }
     ]
 }

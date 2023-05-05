@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  Logger,
   Param,
   Patch,
   Post,
@@ -19,12 +20,15 @@ import { CreateBoardDto } from './dto/create-board.dto';
 import { Board } from './entities/board.entity';
 import { UpdateBoardDto } from './dto/update-board.dto';
 import { AuthGuard } from '@nestjs/passport';
+import { GetUser } from 'src/auth/get-user-decoratoer';
+import { User } from 'src/user/entities/user.entity';
 
 @ApiTags('게시판 API')
 @ApiBearerAuth('access-token')
 @UseGuards(AuthGuard())
 @Controller('board')
 export class BoardController {
+  private logger = new Logger('BoardController');
   constructor(private readonly boardService: BoardService) {}
 
   @Post()
@@ -35,7 +39,12 @@ export class BoardController {
       example: '',
     },
   })
-  create(@Body() createBoardDto: CreateBoardDto) {
+  create(@Body() createBoardDto: CreateBoardDto, @GetUser() user: User) {
+    this.logger.verbose(
+      `user ${user.name} creating a new board. Payload: ${JSON.stringify(
+        createBoardDto,
+      )}`,
+    );
     return this.boardService.create(createBoardDto);
   }
 
@@ -48,7 +57,8 @@ export class BoardController {
     type: Board,
   })
   @Get()
-  findAll() {
+  findAll(@GetUser() user: User) {
+    this.logger.verbose(`User ${user.name} trying to get all board`);
     return this.boardService.findAll();
   }
 
@@ -63,7 +73,8 @@ export class BoardController {
       example: { title: '게시글 제목이에요', content: '게시글 내용이에요' },
     },
   })
-  async findOne(@Param('id') id: number) {
+  async findOne(@Param('id') id: number, @GetUser() user: User) {
+    this.logger.verbose(`user ${user.name} trying to get a board`);
     return await this.boardService.findOne(id);
   }
 
@@ -84,8 +95,17 @@ export class BoardController {
       },
     },
   })
-  update(@Param('id') id: number, @Body() updateBaordDto: UpdateBoardDto) {
-    return this.boardService.update(id, updateBaordDto);
+  update(
+    @Param('id') id: number,
+    @Body() updateBoardDto: UpdateBoardDto,
+    @GetUser() user: User,
+  ) {
+    this.logger.verbose(
+      `user ${user.name} updating a board. Payload: ${JSON.stringify(
+        updateBoardDto,
+      )}`,
+    );
+    return this.boardService.update(id, updateBoardDto);
   }
 
   @Delete(':id')
@@ -99,7 +119,8 @@ export class BoardController {
       example: { success: true },
     },
   })
-  delete(@Param('id') id: number) {
+  delete(@Param('id') id: number, @GetUser() user: User) {
+    this.logger.verbose(`user ${user.name} delete a board`);
     return this.boardService.delete(id);
   }
 }
